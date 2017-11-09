@@ -73,7 +73,7 @@ public:
 		size = 0;
 	}
 	//public methods
-	void InsertData(std::string*); //Insert (Heap-style) new submission information from the directory given by PropertyTree
+	void InsertData(StudentInfo*); //Insert (Heap-style) new submission information from the directory given by PropertyTree
 	StudentInfo* Scan(); //scan new submissions from student and update property tree
 
 };

@@ -1,3 +1,7 @@
 ﻿  Source.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+  - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
   XML.vcxproj -> C:\Users\Kevin\Documents\Visual Studio 2015\Projects\XML\Debug\XML.exe
   XML.vcxproj -> C:\Users\Kevin\Documents\Visual Studio 2015\Projects\XML\Debug\XML.pdb (Partial PDB)
