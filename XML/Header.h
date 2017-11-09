@@ -33,6 +33,7 @@ public:
 
 struct StudentInfo {
 	std::string Location;// current address of file group in computer (date time format)
+	boost::posix_time::ptime time; //get from Location
 	float score; //students' score
 	bool isChecked; //check whether student's file has been processed
 	std::string MSSV; //Student's ID
@@ -45,6 +46,10 @@ class Submission {
 	PropertyTree ptree;
 	//current size of array above
 	int size;
+	int MaxSize;
+	//private methods
+	void reHeapUp();
+	void reHeapDown();
 public:
 	//constructor
 	Submission(std::string Address) {
@@ -54,7 +59,8 @@ public:
 			throw("XML File does not exist!");
 		ptree.CreateDirFromXML(ptree.getDir());
 		Submit = new StudentInfo[DEFAULT_MAX_SUBMISSION];
-		size = DEFAULT_MAX_SUBMISSION;
+		MaxSize = DEFAULT_MAX_SUBMISSION;
+		size = 0;
 	}
 	Submission(std::string Address, int MAX_ELEMENT){
 		ptree.setDir(Address);
@@ -63,9 +69,12 @@ public:
 			throw("XML File does not exist!");
 		ptree.CreateDirFromXML(ptree.getDir());
 		Submit = new StudentInfo[MAX_ELEMENT];
-		size = MAX_ELEMENT;
+		MaxSize = MAX_ELEMENT;
+		size = 0;
 	}
 	//public methods
 	void InsertData(std::string*); //Insert (Heap-style) new submission information from the directory given by PropertyTree
+	StudentInfo* Scan(); //scan new submissions from student and update property tree
+
 };
 
